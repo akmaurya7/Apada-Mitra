@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        .sidebar {
+            background-color: #333;
+            color: pink;
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            overflow-x: hidden;
+            transition: 0.3s;
+        }
+        
+        .sidebar.show {
+            left: 0;
+        }
+        
+
+        .header {
+            background-color: #222;
+            color: yellow;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        
+        .header .sidebar-toggle {
+            cursor: pointer;
+            font-size: 24px;
+            color: yellow;
+        }
+        
+        .header .user-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header .user-icons i {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+
+        .header .notification-icon {
+            font-size: 24px;
+            color: yellow;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .header .signin-signup-icon {
+            font-size: 24px;
+            color: yellow;
+            cursor: pointer;
+        }
+        
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar ul li {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        .sidebar ul li:hover {
+            background-color: #444;
+            color: green;
+        }
+
+
+        .close-icon {
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            font-size: 24px;
+            color: yellow;
+            cursor: pointer;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative; 
+        }
+
+        .icon-templates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .icon-template {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .icon-template i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #0078d4; 
+        }
+
+        .icon-template h2 {
+            font-size: 18px;
+        }
+
+        /* Change the icon for Map template */
+        .map-icon i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #ff5733; /* HD Orange Color */
+        }
+
+        .icon-template:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; 
+            font-size: 36px;
+            color: #ff5733; 
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="sidebar-toggle" onclick="toggleSidebar()">
+            <span>&#9776;</span>
+        </div>
+        <h1>Apda Mitra</h1>
+        
+        <div class="user-icons">
+            <span class="notification-icon" onclick="showNotification()">&#128276;</span>
+            <span class="signin-signup-icon" onclick="openSignInSignUp()">&#128100;</span>
+        </div>
+    </div>
+    
+    <div class="sidebar">
+        <span class="close-icon" onclick="toggleSidebar()">&#10005;</span>
+        <ul>
+            <li>About Us</li>
+            <li>Settings</li>
+            <li>Terms and Conditions</li>
+        </ul>
+    </div>
+    
+    <div class="icon-templates">
+        
+        <div class="icon-template map-icon">
+            <i>&#127970;</i>
+            <h2>Map</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#127973;</i>
+            <h2>Nearby Hospital</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#128737;</i>
+            <h2>Safety Place</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#127980;</i>
+            <h2>Emergency Shop</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#128657;</i>
+            <h2>Ambulance Contact</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#128663;</i>
+            <h2>Safety Vehicle</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#127962;</i>
+            <h2>Community</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#128198;</i>
+            <h2>Precaution Videos</h2>
+        </div>
+        <div class="icon-template">
+            <i>&#127918;</i>
+            <h2>Games & Quizzes</h2>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Apda Mitra</p>
+        <p>Contact: contact@apdamitra.com</p>
+        <p>Address: 1234 Main Street, City, Country</p>
+    </div>
+
+
+    <div class="chat-icon" onclick="openChat()">
+        &#128172;
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        function showNotification() {
+            
+        }
+
+        function openSignInSignUp() {
+            
+        }
+
+        
+        function openChat() {
+            
+        }
+    </script>
+</body>
+</html>
